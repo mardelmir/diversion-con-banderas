@@ -22,8 +22,6 @@ Esta aplicación utiliza la API de REST Countries para obtener información sobr
 ## Notas y pistas
 
 - Los paises se ordenarán en orden alfabético (recuerda el método `sort`). Recuerda que para ordenar no es lo mismo mayúsculas que minúsculas. Si comparas que sea lo mismo... pasa los nombres a mayúsculas si te parece más sencillo para la comparación.
-ALT: peliculas.sort((a, b) => a.title > b.title ? 1 : -1)
-
 - La información detallada incluye la bandera del país, la capital, la población y el lado de la carretera donde se circula. Este flotante se quedará fijo y centrado hasta que se cierre.
 - La aplicación está diseñada con un enfoque simple y utiliza funciones asíncronas para manejar las solicitudes a la API. Recuerda que podrás usar fetch, Async/Await...
 - Puedes manipular el `HTML` si lo necesitaras. 

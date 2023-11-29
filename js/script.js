@@ -7,34 +7,60 @@ const getCountries = async () => {
             throw new Error('Se ha producido un error', response.status)
         }
         const data = await response.json()
-        return data
+        const sorted = data.sort((a, b) => a.name.common.localeCompare(b.name.common))
+        return sorted
     }
     catch (error) {
         console.log('Error al obtener los datos', error)
     }
 }
 
-const generalTemplate = (data) => {
-    data.forEach((country) => {
-        console.log(country)
-        const { flags, name } = country
-        const [flag] = flags
+const template = (sorted) => {
+    sorted.forEach((country) => {
+        const { flags, name, capital: cap, population, car } = country
+        const [, flag] = flags
         const { common: countryName } = name
+        const { side } = car
 
+        let capital = ''
+        !cap
+            ? capital = 'No disponible'
+            : capital = cap[0]
+// PEND: onclick="show()" + onclick="hide()"
         const general = `
-        <div class="general">
+        <div class="general" onlcick="show()">
             <img class="flag" src="${flag}" alt="${countryName}" />
             <p><span>${countryName}</span></p>
-        </div>
-    `
+            <div class="hide","detailed" onclick="hide()">
+                <img src="${flag}" alt="${countryName}" />
+                <p><span>${countryName}</span></p>
+                <p>Capital: ${capital}</p>
+                <p>Población: ${population}</p>
+                <p>Lado de la carretera: ${side}</p>
+            </div>
+        </div>`
         list.innerHTML += general
     })
 }
 
+const show = () => {
+    console.log('hola')
+}
+
+// const clickar = (clk) => {
+//     const targetElement = clk.target;
+//     if (targetElement !== userInput && userInput.value) {
+//         proceed();
+//     }
+// };
+
+getCountries().then(sorted => template(sorted))
+
+// detailedTemplate(sorted)
 // const detailedTemplate = (data) => {
 //     data.forEach((country) => {
 //         const { flags, name, capital: cap, population, car } = country
-//         const [flag] = flags
+//         const [, flag] = flags
 //         const { common: countryName } = name
 //         const { side } = car
 
@@ -50,12 +76,11 @@ const generalTemplate = (data) => {
 //             <p>Capital: ${capital}</p>
 //             <p>Población: ${population}</p>
 //             <p>Lado de la carretera: ${side}</p>
-//         </div>
-//     `
-//         list.appendChild(detailed)
+//         </div>`
+        
+//         let float = document.createElement('div')
+//         float.innerHTML += detailed
+
+//         list.insertAdjacentElement('afterend', float)
 //     })
 // }
-
-getCountries().then(data => { generalTemplate(data); 
-    //detailedTemplate(data) 
-})
