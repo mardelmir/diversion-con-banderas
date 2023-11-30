@@ -26,33 +26,39 @@ const template = (sorted) => {
         !cap
             ? capital = 'No disponible'
             : capital = cap[0]
-// PEND: onclick="show()" + onclick="hide()"
+
         const general = `
-        <div class="general" onlcick="show()">
-            <img class="flag" src="${flag}" alt="${countryName}" />
+        <div class="general">
+            <img class="flag" src="${flag}" alt="${countryName}" onclick="show(event)"/>
             <p><span>${countryName}</span></p>
-            <div class="hide","detailed" onclick="hide()">
-                <img src="${flag}" alt="${countryName}" />
-                <p><span>${countryName}</span></p>
-                <p>Capital: ${capital}</p>
-                <p>Población: ${population}</p>
-                <p>Lado de la carretera: ${side}</p>
+            <div class="hide">
+                <div class="card">
+                    <img src="${flag}" alt="${countryName}" />
+                    <div class="info">
+                        <p><span>${countryName}</span></p>
+                        <p>Capital: ${capital}</p>
+                        <p>Población: ${population}</p>
+                        <p>Lado de la carretera: ${side}</p>
+                    </div>
+                    <button class="btn" onclick="hide(event)">Cerrar</button>
+                </div>
             </div>
         </div>`
         list.innerHTML += general
     })
 }
 
-const show = () => {
-    console.log('hola')
+const show = (event) => {
+    const div = event.target.parentElement.lastElementChild
+    div.classList.add('show')
+    div.classList.remove('hide')
 }
 
-// const clickar = (clk) => {
-//     const targetElement = clk.target;
-//     if (targetElement !== userInput && userInput.value) {
-//         proceed();
-//     }
-// };
+const hide = (event) =>{
+    const div = event.target.parentElement.parentElement
+    div.classList.remove('show')
+    div.classList.add('hide')
+}
 
 getCountries().then(sorted => template(sorted))
 
