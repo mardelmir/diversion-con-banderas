@@ -130,6 +130,7 @@ table {
 	border-spacing: 0;
 }
 
+
 /* -- */
 
 body {
@@ -165,17 +166,23 @@ h1 {
 	background-color: white;
 	box-shadow: 0px 0px 10px 1px rgb(220, 220, 220);
 	border: 1px solid #DDDDDD;
-	width: 190px;
-	height: 190px;
+	width: 200px;
+	height: 200px;
 	padding: 8px;
+	margin-top: 10px;
 	border-radius: 5px;
 }
 
 .flag {
-	width: 190px;
+	width: 200px;
 	height: 120px;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+span {
+	font-size: 20px;
+	font-weight: 700;
 }
 
 .hide {
@@ -212,6 +219,7 @@ h1 {
 .card>img {
 	width: 310px;
 	height: 200px;
+	box-shadow: 0 0 5px 2px rgb(227, 227, 227);
 	border-radius: 5px;
 }
 
@@ -224,11 +232,6 @@ h1 {
 	justify-content: center;
 	margin-right: 5px;
 	gap: 15px;
-}
-
-span {
-	font-size: 20px;
-	font-weight: 700;
 }
 
 .btn {
