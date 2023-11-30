@@ -49,15 +49,15 @@ const template = (sorted) => {
 }
 
 const show = (event) => {
-    const div = event.target.parentElement.lastElementChild
-    div.classList.add('show')
-    div.classList.remove('hide')
+    const detail = event.target.parentElement.lastElementChild
+    detail.classList.add('show')
+    detail.classList.remove('hide')
 }
 
 const hide = (event) =>{
-    const div = event.target.parentElement.parentElement
-    div.classList.remove('show')
-    div.classList.add('hide')
+    const detail = event.target.parentElement.parentElement
+    detail.classList.remove('show')
+    detail.classList.add('hide')
 }
 
 getCountries().then(sorted => template(sorted))
