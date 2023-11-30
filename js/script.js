@@ -61,32 +61,3 @@ const hide = (event) =>{
 }
 
 getCountries().then(sorted => template(sorted))
-
-// detailedTemplate(sorted)
-// const detailedTemplate = (data) => {
-//     data.forEach((country) => {
-//         const { flags, name, capital: cap, population, car } = country
-//         const [, flag] = flags
-//         const { common: countryName } = name
-//         const { side } = car
-
-//         let capital = ''
-//         !cap
-//             ? capital = 'No disponible'
-//             : capital = cap[0]
-
-//         const detailed = `
-//         <div class="hide">
-//             <img src="${flag}" alt="${countryName}" />
-//             <p><span>${countryName}</span></p>
-//             <p>Capital: ${capital}</p>
-//             <p>Población: ${population}</p>
-//             <p>Lado de la carretera: ${side}</p>
-//         </div>`
-        
-//         let float = document.createElement('div')
-//         float.innerHTML += detailed
-
-//         list.insertAdjacentElement('afterend', float)
-//     })
-// }
