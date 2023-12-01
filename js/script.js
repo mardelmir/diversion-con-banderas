@@ -22,10 +22,7 @@ const template = (sorted) => {
         const { common: countryName } = name
         const { side } = car
 
-        let capital = ''
-        !cap
-            ? capital = 'No disponible'
-            : capital = cap[0]
+        const capital = cap ? cap[0] : 'No tiene capital'
 
         const general = `
         <div class="general">
